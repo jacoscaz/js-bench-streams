@@ -83,4 +83,4 @@ Minimal dependencies:
 - `mitata` - benchmarking library
 - `readable-stream` - Node Streams polyfill for cross-runtime use
 - `asynciterator` - async iterator package
-- `typescript`, `tsx` - development only
+- `typescript` - development only
