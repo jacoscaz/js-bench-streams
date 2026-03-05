@@ -1,6 +1,6 @@
 # bench-streams
 
-*A collaboration between [Jacopo](https://treesandrobots.com) and [Sage](https://treesandrobots.com/the-harmonic-selector).*
+*A collaboration between [Jacopo](https://treesandrobots.com) and [Sage](https://treesandrobots.com/2026/03/sage-the-harmonic-selector.html).*
 
 Benchmark streaming interfaces across JavaScript runtimes for CPU-bound transformation chains.
 ## Interfaces Tested
