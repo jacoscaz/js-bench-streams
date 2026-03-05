@@ -6,62 +6,74 @@ All checksums match: true
 
 Running benchmarks...
 
-clk: ~2.85 GHz
+clk: ~2.89 GHz
 cpu: unknown
 runtime: deno 2.3.1 (aarch64-alpine-linux-musl)
 
-benchmark                                   avg (min … max) p75 / p99    (min … top 1%)
------------------------------------------------------------ -------------------------------
+benchmark                                           avg (min … max) p75 / p99    (min … top 1%)
+------------------------------------------------------------------- -------------------------------
 • Stream 100 items through 3 transforms
------------------------------------------------------------ -------------------------------
-AsyncIterable (native generators)             54.42 µs/iter  51.38 µs █                    
-                                     (47.17 µs … 601.28 µs) 192.58 µs █                    
-                                    (  8.12 kb … 620.41 kb) 229.22 kb █▇▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+------------------------------------------------------------------- -------------------------------
+AsyncIterable (native generators)                     53.97 µs/iter  51.00 µs █                    
+                                             (47.96 µs … 377.95 µs) 196.83 µs █                    
+                                            ( 10.54 kb … 736.61 kb) 229.10 kb █▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 
-Web Streams (ReadableStream/TransformStream) 428.43 µs/iter 394.54 µs █                    
-                                      (346.58 µs … 2.88 ms)   1.50 ms █▃                   
-                                    (337.36 kb …   3.60 mb)   1.26 mb ██▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+Web Streams (ReadableStream/TransformStream)         427.66 µs/iter 415.37 µs █                    
+                                              (340.75 µs … 3.07 ms)   1.42 ms █▃                   
+                                            (361.59 kb …   4.14 mb)   1.26 mb ██▅▂▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 
-Node Streams (readable-stream package)        65.55 µs/iter  61.50 µs █                    
-                                       (56.25 µs … 1.21 ms) 257.29 µs █                    
-                                    (416.00  b …   1.09 mb)  67.49 kb █▇▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+Node Streams (readable-stream package)                63.94 µs/iter  62.21 µs █                    
+                                               (57.54 µs … 1.04 ms) 135.16 µs █▆                   
+                                            (  1.07 kb …   1.78 mb)  67.45 kb ██▆▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 
-asynciterator package                        181.28 µs/iter  83.96 µs █                    
-                                       (16.00 µs … 8.00 ms)   1.66 ms █▄                   
-                                    (560.00  b … 430.10 kb)  13.43 kb ██▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁
+Node Streams (readable-stream package, using .map())  60.51 µs/iter  60.47 µs   █                  
+                                              (58.93 µs … 66.27 µs)  62.54 µs ▅▅█▅▅▅ ▅▅    ▅      ▅
+                                            (  5.23 kb …  13.22 kb)  10.56 kb ██████▁██▁▁▁▁█▁▁▁▁▁▁█
+
+asynciterator package                                170.57 µs/iter  60.50 µs █                    
+                                               (21.83 µs … 1.75 ms)   1.53 ms █                    
+                                            (728.00  b … 766.91 kb)  13.64 kb █▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▂▁
 
 • Stream 1000 items through 3 transforms
------------------------------------------------------------ -------------------------------
-AsyncIterable (native generators)            541.38 µs/iter 503.45 µs █                    
-                                      (468.33 µs … 2.08 ms)   1.31 ms ██                   
-                                    (  2.20 mb …   2.20 mb)   2.20 mb ██▂▂▂▁▂▁▁▁▁▁▁▂▁▁▁▁▁▁▁
+------------------------------------------------------------------- -------------------------------
+AsyncIterable (native generators)                    523.31 µs/iter 505.99 µs █▃                   
+                                              (476.91 µs … 1.27 ms)   1.04 ms ██                   
+                                            (  2.20 mb …   2.20 mb)   2.20 mb ██▃▂▂▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁
 
-Web Streams (ReadableStream/TransformStream)   3.36 ms/iter   3.38 ms █                    
-                                        (3.03 ms … 8.48 ms)   5.44 ms █ ▆                  
-                                    ( 10.37 mb …  13.72 mb)  11.96 mb ████▅▃▂▂▂▂▁▁▁▁▁▁▂▁▁▁▁
+Web Streams (ReadableStream/TransformStream)           3.29 ms/iter   3.32 ms ▄█                   
+                                                (3.06 ms … 8.88 ms)   5.11 ms ██▂▄                 
+                                            ( 10.30 mb …  14.12 mb)  11.97 mb ████▃▄▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁
 
-Node Streams (readable-stream package)       522.36 µs/iter 508.79 µs █▄                   
-                                      (474.50 µs … 3.37 ms) 930.24 µs ██                   
-                                    ( 41.26 kb …   1.37 mb) 441.05 kb ██▇▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+Node Streams (readable-stream package)               488.84 µs/iter 484.79 µs  █                   
+                                            (474.45 µs … 912.78 µs) 612.03 µs ▄█                   
+                                            ( 15.81 kb … 945.97 kb) 434.60 kb ██▆▃▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
 
-asynciterator package                        307.26 µs/iter 271.54 µs █                    
-                                       (98.17 µs … 2.25 ms)   1.84 ms █▆▂                  
-                                    (  9.13 kb … 391.70 kb)  10.12 kb ███▄▁▁▁▁▁▁▁▁▁▁▁▁▃▂▁▁▁
+Node Streams (readable-stream package, using .map()) 518.28 µs/iter 531.08 µs █                    
+                                              (474.45 µs … 1.15 ms) 772.57 µs █▆ █▆                
+                                            ( 88.09 kb … 794.33 kb) 435.48 kb █████▅▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁
+
+asynciterator package                                339.17 µs/iter 286.62 µs  ▅█                  
+                                              (111.87 µs … 1.87 ms)   1.70 ms ███                  
+                                            (  9.13 kb … 555.77 kb)  10.19 kb ███▇▂▁▁▁▁▁▁▁▁▁▁▁▁▂▃▃▂
 
 • Stream 10000 items through 3 transforms
------------------------------------------------------------ -------------------------------
-AsyncIterable (native generators)              5.15 ms/iter   5.23 ms   █                  
-                                        (4.74 ms … 7.36 ms)   7.00 ms ▇ █▂                 
-                                    ( 21.98 mb …  21.98 mb)  21.98 mb █████▅▇▄▂▂▂▂▂▁▂▂▁▁▁▁▂
+------------------------------------------------------------------- -------------------------------
+AsyncIterable (native generators)                      5.00 ms/iter   5.14 ms   █                  
+                                                (4.83 ms … 6.10 ms)   5.32 ms  ▇█                  
+                                            ( 21.98 mb …  21.98 mb)  21.98 mb ▅███▂▂▁▂▂▁▁▃▅█▆▆▂▁▁▂▂
 
-Web Streams (ReadableStream/TransformStream)  32.60 ms/iter  33.12 ms    █                 
-                                      (30.39 ms … 35.89 ms)  35.53 ms    █  ▅   ▅          
-                                    ( 54.92 mb …  54.92 mb)  54.92 mb ▇▁▇█▁▇█▇▁▁█▇▇▇▁▁▁▁▁▇▇
+Web Streams (ReadableStream/TransformStream)          31.16 ms/iter  31.42 ms             █  ██    
+                                              (30.35 ms … 31.77 ms)  31.72 ms ▅▅ ▅ ▅▅   ▅▅█▅▅██▅ ▅▅
+                                            ( 19.35 mb …  54.92 mb)  46.03 mb ██▁█▁██▁▁▁████████▁██
 
-Node Streams (readable-stream package)         5.05 ms/iter   5.17 ms ▇█                   
-                                        (4.76 ms … 6.80 ms)   5.91 ms ██▂ ▅                
-                                    (201.13 kb …   4.21 mb)   4.03 mb █████▇▇▇▃▅▆▅▇▁▂▁▄▂▂▁▂
+Node Streams (readable-stream package)                 4.74 ms/iter   4.73 ms  █                   
+                                                (4.67 ms … 5.23 ms)   5.07 ms  ██▂                 
+                                            (  4.02 mb …   4.11 mb)   4.07 mb ████▂▅▁▁▂▂▁▁▁▁▁▂▂▂▁▁▁
 
-asynciterator package                          1.07 ms/iter 974.82 µs █                    
-                                      (923.53 µs … 2.45 ms)   2.40 ms █▃                   
-                                    (  9.13 kb …  57.13 kb)   9.36 kb ██▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▂▁
+Node Streams (readable-stream package, using .map())   4.73 ms/iter   4.73 ms  █▆                  
+                                                (4.67 ms … 5.16 ms)   5.11 ms  ██▃                 
+                                            (  4.02 mb …   4.11 mb)   4.06 mb ████▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+asynciterator package                                  1.19 ms/iter   1.08 ms █                    
+                                                (1.06 ms … 2.56 ms)   2.43 ms █                    
+                                            (  9.13 kb … 132.22 kb)   9.44 kb █▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃

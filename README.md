@@ -67,7 +67,7 @@ Each run creates a source of N items, chains 3 transforms, and consumes results.
 
 Test with Deno:
 ```bash
-deno run --allow-read --allow-net src/bench.ts
+deno run --allow-all src/bench.ts
 ```
 
 Test with Bun:
