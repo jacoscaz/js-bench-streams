@@ -1,0 +1,55 @@
+
+> bench-streams@1.0.0 bench
+> node --import tsx src/bench.ts
+
+Verifying correctness...
+
+All implementations processed same item count: true
+All checksums match: true
+  Items: 1000, Checksum: 7330824
+
+Running benchmarks...
+
+cpu: unknown
+runtime: node v24.11.1 (arm64-linux)
+
+benchmark                                         time (avg)             (min … max)       p75       p99      p999
+------------------------------------------------------------------------------------ -----------------------------
+• Stream 100 items through 3 transforms
+------------------------------------------------------------------------------------ -----------------------------
+AsyncIterable (native generators)             49'447 ns/iter (49'242 ns … 49'857 ns) 49'483 ns 49'857 ns 49'857 ns
+Web Streams (ReadableStream/TransformStream)     706 µs/iter     (650 µs … 1'365 µs)    689 µs  1'175 µs  1'365 µs
+Node Streams (readable-stream package)        73'702 ns/iter    (65'916 ns … 863 µs) 70'916 ns    180 µs    469 µs
+asynciterator package                         16'290 ns/iter    (15'041 ns … 316 µs) 16'000 ns 27'709 ns 64'708 ns
+
+summary for Stream 100 items through 3 transforms
+  asynciterator package
+   3.04x faster than AsyncIterable (native generators)
+   4.52x faster than Node Streams (readable-stream package)
+   43.36x faster than Web Streams (ReadableStream/TransformStream)
+
+• Stream 1000 items through 3 transforms
+------------------------------------------------------------------------------------ -----------------------------
+AsyncIterable (native generators)                486 µs/iter       (486 µs … 486 µs)    486 µs    486 µs    486 µs
+Web Streams (ReadableStream/TransformStream)   6'790 µs/iter  (6'287 µs … 10'595 µs)  6'619 µs 10'595 µs 10'595 µs
+Node Streams (readable-stream package)           536 µs/iter       (523 µs … 904 µs)    533 µs    674 µs    870 µs
+asynciterator package                            103 µs/iter       (102 µs … 103 µs)    103 µs    103 µs    103 µs
+
+summary for Stream 1000 items through 3 transforms
+  asynciterator package
+   4.72x faster than AsyncIterable (native generators)
+   5.21x faster than Node Streams (readable-stream package)
+   66.03x faster than Web Streams (ReadableStream/TransformStream)
+
+• Stream 10000 items through 3 transforms
+------------------------------------------------------------------------------------ -----------------------------
+AsyncIterable (native generators)              4'802 µs/iter   (4'655 µs … 5'085 µs)  4'961 µs  5'077 µs  5'085 µs
+Web Streams (ReadableStream/TransformStream)  64'983 µs/iter (64'687 µs … 65'344 µs) 65'274 µs 65'344 µs 65'344 µs
+Node Streams (readable-stream package)         5'238 µs/iter   (5'137 µs … 5'789 µs)  5'235 µs  5'610 µs  5'789 µs
+asynciterator package                            951 µs/iter     (938 µs … 1'119 µs)    954 µs    988 µs  1'119 µs
+
+summary for Stream 10000 items through 3 transforms
+  asynciterator package
+   5.05x faster than AsyncIterable (native generators)
+   5.51x faster than Node Streams (readable-stream package)
+   68.31x faster than Web Streams (ReadableStream/TransformStream)

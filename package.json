@@ -1,0 +1,20 @@
+{
+  "name": "bench-streams",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Benchmark streaming interfaces across JS runtimes",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "bench": "node src/bench.ts"
+  },
+  "dependencies": {
+    "mitata": "^1.0.34",
+    "readable-stream": "^4.7.0",
+    "asynciterator": "^3.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/node": "^22.13.5",
+    "@types/readable-stream": "^4.0.18"
+  }
+}

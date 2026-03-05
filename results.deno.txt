@@ -1,0 +1,67 @@
+Verifying correctness...
+
+All implementations processed same item count: true
+All checksums match: true
+  Items: 1000, Checksum: 7330824
+
+Running benchmarks...
+
+clk: ~2.85 GHz
+cpu: unknown
+runtime: deno 2.3.1 (aarch64-alpine-linux-musl)
+
+benchmark                                   avg (min … max) p75 / p99    (min … top 1%)
+----------------------------------------------------------- -------------------------------
+• Stream 100 items through 3 transforms
+----------------------------------------------------------- -------------------------------
+AsyncIterable (native generators)             54.42 µs/iter  51.38 µs █                    
+                                     (47.17 µs … 601.28 µs) 192.58 µs █                    
+                                    (  8.12 kb … 620.41 kb) 229.22 kb █▇▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+Web Streams (ReadableStream/TransformStream) 428.43 µs/iter 394.54 µs █                    
+                                      (346.58 µs … 2.88 ms)   1.50 ms █▃                   
+                                    (337.36 kb …   3.60 mb)   1.26 mb ██▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+Node Streams (readable-stream package)        65.55 µs/iter  61.50 µs █                    
+                                       (56.25 µs … 1.21 ms) 257.29 µs █                    
+                                    (416.00  b …   1.09 mb)  67.49 kb █▇▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+asynciterator package                        181.28 µs/iter  83.96 µs █                    
+                                       (16.00 µs … 8.00 ms)   1.66 ms █▄                   
+                                    (560.00  b … 430.10 kb)  13.43 kb ██▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁
+
+• Stream 1000 items through 3 transforms
+----------------------------------------------------------- -------------------------------
+AsyncIterable (native generators)            541.38 µs/iter 503.45 µs █                    
+                                      (468.33 µs … 2.08 ms)   1.31 ms ██                   
+                                    (  2.20 mb …   2.20 mb)   2.20 mb ██▂▂▂▁▂▁▁▁▁▁▁▂▁▁▁▁▁▁▁
+
+Web Streams (ReadableStream/TransformStream)   3.36 ms/iter   3.38 ms █                    
+                                        (3.03 ms … 8.48 ms)   5.44 ms █ ▆                  
+                                    ( 10.37 mb …  13.72 mb)  11.96 mb ████▅▃▂▂▂▂▁▁▁▁▁▁▂▁▁▁▁
+
+Node Streams (readable-stream package)       522.36 µs/iter 508.79 µs █▄                   
+                                      (474.50 µs … 3.37 ms) 930.24 µs ██                   
+                                    ( 41.26 kb …   1.37 mb) 441.05 kb ██▇▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+
+asynciterator package                        307.26 µs/iter 271.54 µs █                    
+                                       (98.17 µs … 2.25 ms)   1.84 ms █▆▂                  
+                                    (  9.13 kb … 391.70 kb)  10.12 kb ███▄▁▁▁▁▁▁▁▁▁▁▁▁▃▂▁▁▁
+
+• Stream 10000 items through 3 transforms
+----------------------------------------------------------- -------------------------------
+AsyncIterable (native generators)              5.15 ms/iter   5.23 ms   █                  
+                                        (4.74 ms … 7.36 ms)   7.00 ms ▇ █▂                 
+                                    ( 21.98 mb …  21.98 mb)  21.98 mb █████▅▇▄▂▂▂▂▂▁▂▂▁▁▁▁▂
+
+Web Streams (ReadableStream/TransformStream)  32.60 ms/iter  33.12 ms    █                 
+                                      (30.39 ms … 35.89 ms)  35.53 ms    █  ▅   ▅          
+                                    ( 54.92 mb …  54.92 mb)  54.92 mb ▇▁▇█▁▇█▇▁▁█▇▇▇▁▁▁▁▁▇▇
+
+Node Streams (readable-stream package)         5.05 ms/iter   5.17 ms ▇█                   
+                                        (4.76 ms … 6.80 ms)   5.91 ms ██▂ ▅                
+                                    (201.13 kb …   4.21 mb)   4.03 mb █████▇▇▇▃▅▆▅▇▁▂▁▄▂▂▁▂
+
+asynciterator package                          1.07 ms/iter 974.82 µs █                    
+                                      (923.53 µs … 2.45 ms)   2.40 ms █▃                   
+                                    (  9.13 kb …  57.13 kb)   9.36 kb ██▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▂▁
